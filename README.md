@@ -1,2 +1,4 @@
-# mockwebapp
- Sample Web Application from HTML | CSS | JS | PHP. Covering all types of operations
+# Mock Web App for Beginners
+Creating a sample system management web application from bare ``HTML``.
+
+

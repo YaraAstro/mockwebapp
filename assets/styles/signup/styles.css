@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* 
+    font-family: "Poppins", sans-serif;
+    font-family: "Abril Fatface", serif;
+*/
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+a{
+    color: initial;
+    text-decoration: none;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../images/signup/shubham-dhage-LtIf-DdfIgk-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all .35s ease-in-out;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255,255,255, 1) 0%,rgba(255,255,255,0) 65%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    right: 50px;
+    width: 100%;
+    gap: 15px;
+}
+
+/* toggle button */
+
+#toggleType {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 100;
+    background-color: rgb(112, 141, 205);
+    color: beige;
+    width: max-content;
+    padding: 5px 25px;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    letter-spacing: 2px;
+    transition: all ease-in-out .35s;
+    cursor: pointer;
+}
+
+#toggleType:hover {
+    box-shadow: 0 2px 3px rgb(50, 50, 50);
+}
+
+/* logo */
+
+.frame .logo {
+    padding: 15px 0px;
+}
+
+.frame .logo p {
+    font-family: "Abril Fatface", serif;
+    font-size: 1em;
+    letter-spacing: 2px;
+    width: fit-content;
+}
+
+.frame .logo p::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    bottom: -3px;
+    right: -10px;
+    background-color: cornflowerblue;
+    box-shadow: 1px 2px gainsboro;
+}
+
+/* form */
+
+.formBlock {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    backdrop-filter: blur(5px) brightness(.95);
+    box-shadow: -1px 2px 3px rgba(180, 180, 180, 0.5);
+    border-radius: 15px;
+    right: 50px;
+}
+
+.formBlock form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBlock form fieldset {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 400px;
+    outline: none;
+    border: none;
+}
+
+.staffContent {
+    display: none;
+}
+
+.formBlock form fieldset:nth-child(1) {
+    display: flex;
+}
+
+.formBlock form .inputBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+.formBlock .btnBlock{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.formBlock form .btnBlock button,
+.formBlock form .btnBlock p {
+    width: max-content;
+    padding: 5px 25px;
+    outline: none;
+    border: none;
+    background-color: cornflowerblue;
+    color: beige;
+    font-size: 1em;
+    transition: all .35s ease-in-out;
+    cursor: pointer;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.formBlock form .btnBlock button:hover ,
+.formBlock form .btnBlock p:hover {
+    box-shadow: 0 3px 5px rgb(150, 150, 150);
+    padding: 5px 25px;
+}
+
+.formBlock form .btnBlock button:hover {
+    background-color: rgb(0, 194, 65);
+}
+
+.formBlock form .btnBlock p:hover{
+    background-color: rgb(59, 49, 209);
+}
+
+.formBlock .errorMsg p{
+    font-size: .75em;
+    color: tomato;
+}
+
+.formBlock form input,
+.formBlock form textarea,
+.formBlock form select {
+    outline: none;
+    border: none;
+    padding: 5px 30px 5px 10px;
+    font-size: 1.15em;
+    border-radius: 5px;
+    background-color: azure;
+    width: 20em;
+    transition: .35s ease-in-out all;
+}
+
+.formBlock form input:focus,
+.formBlock form textarea:focus {
+    background-color: ghostwhite;
+    box-shadow: 0 3px 5px rgb(180, 180, 180);
+}
+
+.formBlock form label,
+.formBlock form legend {
+    font-size: .9em;
+    color: rgb(100, 100, 100);
+}
+
+.formBlock form label span {
+    font-size: .7em;
+    color: rgb(98, 95, 136);
+}
+.formBlock form img {
+    width: 1.25em;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+.formBlock form .eyeBtn {
+    position: absolute;
+    top: 32px;
+    right: 5px;
+    padding: 6px;
+    border-left: 2px solid rgb(145, 145, 145);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBlock form .genderBlock {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.formBlock form .genderBlock input {
+    width: fit-content;
+    margin-right: 5px;
+}
+
+.formBlock form .genderBlock label {
+    font-size: 1em;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+/* login with other options */
+
+.formBlock .otherOpt {
+    color: rgb(145, 145, 145);
+    margin-bottom: 15px;
+}
+
+.formBlock .otherOpt .block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.formBlock .otherOpt .block:last-child {
+    margin-top: 25px;
+    justify-content: space-evenly;
+    width: 75%;
+    left: 12.5%;
+}
+
+.formBlock .otherOpt img {
+    transition: all .35s ease-in-out;
+    width: 3.5em;
+}
+
+.formBlock .otherOpt img:hover {
+    filter: drop-shadow(0px 3px 5px rgb(100, 100, 100));
+}
+
+.formBlock .otherOpt hr {
+    width: 40%;
+    border: none;
+    height: 1.5px;
+    background-color: rgb(165, 165, 165);
+}

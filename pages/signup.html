@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Mock App</title>
+    <link rel="stylesheet" href="../assets/styles/signup/styles.css">
+</head>
+<body>
+
+    <button id="toggleType">Sign Up as <span>Staff</span></button>
+    
+    <div class="frame">
+            
+        <div class="logo">
+            <a href="#"><p>Logo</p></a>
+        </div>
+
+        <div class="formBlock">
+            <!-- topic -->
+            <h2>Sign Up <span></span> </h2>
+            
+            <!-- form -->
+            <form action="" method="post">
+                
+                <!-- personal details -->
+                <fieldset>
+                    <div class="inputBlock">
+                        <label for="userFirstName">First Name :</label>
+                        <input type="text" name="userFirstName" id="userFirstName" placeholder="Enter First Name..">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userLastName">Last Name</label>
+                        <input type="text" name="userLastName" id="userLastName" placeholder="Enter Last Name..">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userDoB">Date of Birth :</label>
+                        <input type="date" name="userDoB" id="userDoB">
+                    </div>
+                    <div class="inputBlock">
+                        <legend>Gender :</legend>
+                        <div class="genderBlock">
+                            <label>
+                                <input type="radio" name="gender" value="male" />Male
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="female" />Female
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- physical contact details -->
+                <fieldset>
+                    <div class="inputBlock">
+                        <label for="userAddress">Address :</label>
+                        <textarea name="userAddress" id="userAddress" placeholder='Enter your Address..'></textarea>
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userDistrict">District :</label>
+                        <select name="userDistrict" id="userDistrict">
+                            <option value="" disabled selected>Select your District..</option>
+                        </select>
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userPostalCode">Postal Code :</label>
+                        <input type="text" name="userPostalCode" id="userPostalCode" placeholder="XXXXX">
+                    </div>
+                </fieldset>
+
+                <!-- virtual contact details -->
+                <fieldset>
+                    <div class="inputBlock">
+                        <label for="userNIC">NIC Number :</label>
+                        <input type="text" name="userNIC" id="userNIC" placeholder="XXXXXXXXXXXX">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userEmail">Email :</label>
+                        <input type="email" name="userEmail" id="userEmail" placeholder="example@gmail.com">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userMobile">Contact Number :</label>
+                        <input type="tel" name="userMobile" id="userMobile" placeholder="+XX XXX XXX XXX">
+                    </div>
+                </fieldset>
+
+                <!-- staff post details -->
+                <fieldset class="staffContent">
+                    <div class="inputBlock">
+                        <label for="staffPost">Position :</label>
+                        <select name="staffPost" id="staffPost">
+                            <option value="" disabled selected>Select your Post..</option>
+                        </select>
+                    </div>
+                    <div class="inputBlock">
+                        <label for="staffBranch">Branch :</label>
+                        <select name="staffBranch" id="staffBranch">
+                            <option value="" disabled selected>Select your Branch..</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- staff documents -->
+                <fieldset class="staffContent">
+                    <div class="inputBlock">
+                        <label for="userImg">Profile Picture <span>* png/jpg/jpeg only</span> :</label>
+                        <input type="image" src="userImg" alt="userImg">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userNICScan">NIC Scan <span>* pdf only</span> :</label>
+                        <input type="file" name="userNICScan" id="userNICScan">
+                    </div>
+                    <div class="inputBlock">
+                        <label for="staffCV">Resume <span>* pdf only</span> :</label>
+                        <input type="file" name="staffCV" id="staffCV">
+                    </div>
+                </fieldset>
+
+                <!-- confirm password -->
+                <fieldset>
+                    <div class="inputBlock">
+                        <label for="userPwd">Create Password :</label>
+                        <input type="password" name="userPwd" id="userPwd">
+                        <div class="eyeBtn">
+                            <img src="../assets/images/signup/eye-slash-solid.svg" alt="eye-button" onclick="toggleVisibility('userPwd', this)">
+                        </div>
+                    </div>
+                    <div class="inputBlock">
+                        <label for="userCpwd">Confirm Password :</label>
+                        <input type="password" name="userCpwd" id="userCpwd">
+                        <div class="eyeBtn">
+                            <img src="../assets/images/signup/eye-slash-solid.svg" alt="eye-button" onclick="toggleVisibility('userCpwd', this)">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="btnBlock">
+                    <p id="prevBtn">previous</p>
+                    <p id="nextBtn">next</p>
+                    <button id="submitBtn" type="submit">submit</button>
+                </div>
+
+            </form>
+
+            <!-- other options -->
+            <div class="otherOpt">
+                <div class="block"> <hr> Or <hr> </div>
+                <div class="block">
+                    <a href="">
+                        <img src="../assets/images/login/Google_logo.png" alt="google-logo-btn" />
+                    </a>
+                    <a href="">
+                        <img src="../assets/images/login/Microsoft_logo.png" alt="microsoft-logo-btn" />
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        let btnText = document.querySelector('#toggleType span');
+
+        // toggle registratin type 
+        let toggleReg = document.getElementById('toggleType');
+        toggleReg.addEventListener('click', () => {
+            let topic = document.querySelector('h2 span');
+
+            if (btnText.textContent == 'Staff') {
+                btnText.textContent = 'Customer';
+                topic.textContent = 'as Staff';
+                toggleReg.style.backgroundColor = '#a38645';
+                document.body.style.backgroundImage = "url('../assets/images/signup/milad-fakurian-ICTjWYzpoc0-unsplash.jpg')";
+
+            } else {
+                btnText.textContent = 'Staff';
+                topic.textContent = '';
+                toggleReg.style.backgroundColor = '#708dcd';
+                document.body.style.backgroundImage = "url('../assets/images/signup/shubham-dhage-LtIf-DdfIgk-unsplash.jpg')";
+            }
+        })
+
+
+        // jump to fieldset
+        function hopIntoField (index) {
+            let fieldSet = document.getElementsByTagName('fieldset');
+            let next = document.getElementById();
+        }
+
+
+
+        // selections
+        const districts = [
+            { value: 'colombo', text: 'Colombo' },
+            { value: 'gampaha', text: 'Gampaha' },
+            { value: 'kalutara', text: 'Kalutara' },
+            { value: 'kandy', text: 'Kandy' },
+            { value: 'matale', text: 'Matale' },
+            { value: 'nuwara-eliya', text: 'Nuwara Eliya' },
+            { value: 'galle', text: 'Galle' },
+            { value: 'hambantota', text: 'Hambantota' },
+            { value: 'jaffna', text: 'Jaffna' },
+            { value: 'kilinochchi', text: 'Kilinochchi' },
+            { value: 'mannar', text: 'Mannar' },
+            { value: 'vavuniya', text: 'Vavuniya' },
+            { value: 'mullaitivu', text: 'Mullaitivu' },
+            { value: 'batticaloa', text: 'Batticaloa' },
+            { value: 'ampara', text: 'Ampara' },
+            { value: 'trincomalee', text: 'Trincomalee' },
+            { value: 'kurunegala', text: 'Kurunegala' },
+            { value: 'puttalam', text: 'Puttalam' },
+            { value: 'anuradhapura', text: 'Anuradhapura' },
+            { value: 'polonnaruwa', text: 'Polonnaruwa' },
+            { value: 'badulla', text: 'Badulla' },
+            { value: 'monaragala', text: 'Monaragala' },
+            { value: 'ratnapura', text: 'Ratnapura' },
+            { value: 'kegalle', text: 'Kegalle' }
+        ];
+        const branches = [
+            { value: 'colombo', text: 'Colombo' },
+            { value: 'kandy', text: 'Kandy' },
+            { value: 'galle', text: 'Galle' },
+            { value: 'jaffna', text: 'Jaffna' },
+            { value: 'negombo', text: 'Negombo' },
+            { value: 'batticaloa', text: 'Batticaloa' },
+            { value: 'trincomalee', text: 'Trincomalee' },
+            { value: 'anuradhapura', text: 'Anuradhapura' },
+            { value: 'kurunegala', text: 'Kurunegala' },
+            { value: 'matara', text: 'Matara' },
+            { value: 'ratnapura', text: 'Ratnapura' },
+            { value: 'badulla', text: 'Badulla' },
+            { value: 'puttalam', text: 'Puttalam' },
+            { value: 'vavuniya', text: 'Vavuniya' },
+            { value: 'maharagama', text: 'Maharagama' }
+        ];
+        const positions = [
+            { value: 'software_engineer', text: 'Software Engineer' },
+            { value: 'data_analyst', text: 'Data Analyst' },
+            { value: 'product_manager', text: 'Product Manager' },
+            { value: 'graphic_designer', text: 'Graphic Designer' },
+            { value: 'marketing_manager', text: 'Marketing Manager' },
+            { value: 'sales_representative', text: 'Sales Representative' },
+            { value: 'human_resources_manager', text: 'Human Resources Manager' },
+            { value: 'customer_service_representative', text: 'Customer Service Representative' },
+            { value: 'financial_analyst', text: 'Financial Analyst' },
+            { value: 'project_manager', text: 'Project Manager' },
+            { value: 'business_analyst', text: 'Business Analyst' },
+            { value: 'software_developer', text: 'Software Developer' },
+            { value: 'ux_ui_designer', text: 'UX/UI Designer' },
+            { value: 'network_administrator', text: 'Network Administrator' },
+            { value: 'content_writer', text: 'Content Writer' },
+            { value: 'operations_manager', text: 'Operations Manager' },
+            { value: 'product_designer', text: 'Product Designer' },
+            { value: 'digital_marketing_specialist', text: 'Digital Marketing Specialist' },
+            { value: 'account_manager', text: 'Account Manager' },
+            { value: 'business_development_manager', text: 'Business Development Manager' }
+        ];
+        function popDropdown(container, optionList) {
+            let dropBox = document.getElementById(container);
+
+            optionList.forEach(element => {
+                let option = document.createElement('option');
+                option.value = element.value;
+                option.textContent = element.text;
+                dropBox.appendChild(option);
+            });
+        }
+        
+        popDropdown('userDistrict', districts);
+        popDropdown('staffBranch', branches);
+        popDropdown('staffPost', positions);
+
+        // toggle visibility
+        function toggleVisibility (inputField, imgPath) {
+            let textField = document.getElementById(inputField);
+
+            if (textField.type == 'password') {
+                textField.type = 'text';
+                imgPath.src = '../assets/images/signup/eye-solid.svg';
+            } else {
+                textField.type = 'password';
+                imgPath.src = '../assets/images/signup/eye-slash-solid.svg';   
+            }
+        }
+    </script>
+
+</body>
+</html>

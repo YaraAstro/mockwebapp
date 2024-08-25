@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Mock App</title>
+    <link rel="stylesheet" href="../assets/styles/login/styles.css">
+</head>
+<body>
+    <div class="frame">
+        <div class="logo">
+            <a href="#"><p>Logo</p></a>
+        </div>
+        <div class="formBlock">
+            <!-- topic -->
+            <h2>Sign In</h2>
+            <!-- error msg -->
+             <div class="errorMsg"></div>
+            <!-- form -->
+            <form action="" method="post">
+                <p>Don't have an account? <a href="../pages/signup.html">Create now</a></p>
+                <div class="inputBlock">
+                    <label for="userEmail">E-mail</label>
+                    <input type="email" name="userEmail" id="userEmail" placeholder="example@gmail.com">
+                </div>
+                <div class="inputBlock">
+                    <label for="userPassword">Password</label>
+                    <input type="password" name="userPassword" id="userPassword" placeholder="@#*%">
+                    <div class="eyeBtn">
+                        <img id="eye" src="../assets/images/login/eye-slash-solid.svg" alt="eye-button" onclick="toggleVisibility('eye', 'userPassword')">
+                    </div>
+                </div>
+                <a href="">Forgot Password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+            <!-- other options -->
+            <div class="otherOpt">
+                <div class="block"> <hr> Or <hr> </div>
+                <div class="block">
+                    <a href="">
+                        <img src="../assets/images/login/Google_logo.png" alt="google-logo-btn">
+                    </a>
+                    <a href="">
+                        <img src="../assets/images/login/Microsoft_logo.png" alt="microsoft-logo-btn">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+
+        // change password visibility
+        let eyeBtn = document.getElementById("eye");
+        eyeBtn.addEventListener('click', () => {
+            let inputField = document.getElementById("userPassword");
+            if (inputField.type == 'password') {
+                inputField.type = 'text';
+                eye.src = '../assets/images/login/eye-solid.svg';
+            } else {
+                inputField.type = 'password';
+                eye.src = '../assets/images/login/eye-slash-solid.svg';
+            }
+        })
+
+        // email validation
+        let enterEmail = document.getElementById('userEmail');
+        enterEmail.addEventListener('input', () => {
+            let submitBtn = document.querySelector('form button');
+            let errorMsg = document.querySelector('.errorMsg');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            errorMsg.innerHTML = '';
+
+            if (emailRegex.test(enterEmail.value)) {
+                submitBtn.disabled = false;
+                errorMsg.innerHTML = '';
+            } else {
+                submitBtn.disabled = true;
+                errorMsg.innerHTML = `<p>Please enter a valid email address.</p>`;
+            }
+        })
+        
+        
+    </script>
+
+</body>
+</html>

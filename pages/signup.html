@@ -85,7 +85,7 @@
                 </fieldset>
 
                 <!-- staff post details -->
-                <fieldset class="staffContent">
+                <fieldset class="staffContent" disabled>
                     <div class="inputBlock">
                         <label for="staffPost">Position :</label>
                         <select name="staffPost" id="staffPost">
@@ -101,10 +101,10 @@
                 </fieldset>
 
                 <!-- staff documents -->
-                <fieldset class="staffContent">
+                <fieldset class="staffContent" disabled>
                     <div class="inputBlock">
                         <label for="userImg">Profile Picture <span>* png/jpg/jpeg only</span> :</label>
-                        <input type="image" src="userImg" alt="userImg">
+                        <input type="image" src="userImg" alt="userImg" accept=".png, .jpg, .jpeg">
                     </div>
                     <div class="inputBlock">
                         <label for="userNICScan">NIC Scan <span>* pdf only</span> :</label>
@@ -166,6 +166,7 @@
         let toggleReg = document.getElementById('toggleType');
         toggleReg.addEventListener('click', () => {
             let topic = document.querySelector('h2 span');
+            let staff = document.querySelectorAll('.staffContent');
 
             if (btnText.textContent == 'Staff') {
                 btnText.textContent = 'Customer';
@@ -173,22 +174,78 @@
                 toggleReg.style.backgroundColor = '#a38645';
                 document.body.style.backgroundImage = "url('../assets/images/signup/milad-fakurian-ICTjWYzpoc0-unsplash.jpg')";
 
+                for (let i = 0; i < staff.length; i++ ) {
+                    staff[i].disabled = false;
+                }
+
             } else {
                 btnText.textContent = 'Staff';
                 topic.textContent = '';
                 toggleReg.style.backgroundColor = '#708dcd';
                 document.body.style.backgroundImage = "url('../assets/images/signup/shubham-dhage-LtIf-DdfIgk-unsplash.jpg')";
+
+                for (let i = 0; i < staff.length; i++ ) {
+                    staff[i].disabled = true;
+                }
             }
         })
 
 
         // jump to fieldset
-        function hopIntoField (index) {
+        function hopIntoField () {
+
             let fieldSet = document.getElementsByTagName('fieldset');
-            let next = document.getElementById();
+            let next = document.getElementById('nextBtn');
+            let prev = document.getElementById('prevBtn');
+            let submit = document.getElementById('submitBtn');
+            let current = 0;
+
+            // function to go through
+            function showField (index) {
+
+                for (let i = 0; i < fieldSet.length; i++) {
+                    fieldSet[i].style.display = 'none';
+                }
+
+                prev.style.display = (index === 0) ? 'none' : 'block';
+                next.style.display = (index === fieldSet.length - 1) ? 'none' : 'block';
+                submit.style.display = (index === fieldSet.length - 1) ? 'block' : 'none';
+
+                fieldSet[index].style.display = 'flex';
+
+            }
+            // go to next step
+            next.addEventListener('click', () => {
+
+                if ((current < fieldSet - 1) && (btnText.textContent === 'Customer' || current !== 3)) {
+                    current++;
+                    showField(current);
+                }
+                else if ((current < fieldSet - 1) && (btnText.textContent === 'Staff') && (current === 3)) {
+                    current += 2;
+                    showField(current);
+                } 
+                
+            });
+            // go to prev step
+            prev.addEventListener('click', () => {
+                
+                if ((current < fieldSet - 1) && (btnText.textContent === 'Customer' || current !== 5)) {
+                    current--;
+                    showField(current);
+                }
+                else if ((current < fieldSet - 1) && (btnText.textContent === 'Staff') && (current === 5)) {
+                    current -= 2;
+                    showField(current);
+                } 
+
+            });
+
+            showField(current);
+            
         }
 
-
+        hopIntoField();
 
         // selections
         const districts = [

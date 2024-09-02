@@ -118,20 +118,13 @@ body::after {
 }
 
 .formBlock form fieldset {
-    display: none;
     flex-direction: column;
     gap: 15px;
     min-width: 400px;
+    min-height: 300px;
+    justify-content: space-around;
     outline: none;
     border: none;
-}
-
-.staffContent {
-    display: none;
-}
-
-.formBlock form fieldset:nth-child(1) {
-    display: flex;
 }
 
 .formBlock form .inputBlock {
@@ -168,11 +161,6 @@ body::after {
 .formBlock form .btnBlock p:hover {
     box-shadow: 0 3px 5px rgb(150, 150, 150);
     padding: 5px 25px;
-}
-
-.formBlock form .btnBlock #prevBtn,
-.formBlock form .btnBlock #submitBtn {
-    display: none;
 }
 
 .formBlock form .btnBlock button:hover {

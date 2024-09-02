@@ -24,7 +24,7 @@
             <form action="" method="post">
                 
                 <!-- personal details -->
-                <fieldset>
+                <fieldset style="display: flex">
                     <div class="inputBlock">
                         <label for="userFirstName">First Name :</label>
                         <input type="text" name="userFirstName" id="userFirstName" placeholder="Enter First Name..">
@@ -51,7 +51,7 @@
                 </fieldset>
 
                 <!-- physical contact details -->
-                <fieldset>
+                <fieldset style="display: none">
                     <div class="inputBlock">
                         <label for="userAddress">Address :</label>
                         <textarea name="userAddress" id="userAddress" placeholder='Enter your Address..'></textarea>
@@ -69,7 +69,7 @@
                 </fieldset>
 
                 <!-- virtual contact details -->
-                <fieldset>
+                <fieldset style="display: none">
                     <div class="inputBlock">
                         <label for="userNIC">NIC Number :</label>
                         <input type="text" name="userNIC" id="userNIC" placeholder="XXXXXXXXXXXX">
@@ -85,7 +85,7 @@
                 </fieldset>
 
                 <!-- staff post details -->
-                <fieldset class="staffContent" disabled>
+                <fieldset style="display: none" class="staffContent" disabled>
                     <div class="inputBlock">
                         <label for="staffPost">Position :</label>
                         <select name="staffPost" id="staffPost">
@@ -101,7 +101,7 @@
                 </fieldset>
 
                 <!-- staff documents -->
-                <fieldset class="staffContent" disabled>
+                <fieldset style="display: none" class="staffContent" disabled>
                     <div class="inputBlock">
                         <label for="userImg">Profile Picture <span>* png/jpg/jpeg only</span> :</label>
                         <input type="image" src="userImg" alt="userImg" accept=".png, .jpg, .jpeg">
@@ -117,7 +117,7 @@
                 </fieldset>
 
                 <!-- confirm password -->
-                <fieldset>
+                <fieldset style="display: none">
                     <div class="inputBlock">
                         <label for="userPwd">Create Password :</label>
                         <input type="password" name="userPwd" id="userPwd">
@@ -135,9 +135,9 @@
                 </fieldset>
 
                 <div class="btnBlock">
-                    <p id="prevBtn">previous</p>
-                    <p id="nextBtn">next</p>
-                    <button id="submitBtn" type="submit">submit</button>
+                    <p style="display: none" id="prevBtn">previous</p>
+                    <p style="display: inline" id="nextBtn">next</p>
+                    <button style="display: none" id="submitBtn" type="submit">submit</button>
                 </div>
 
             </form>
@@ -158,189 +158,7 @@
         </div>
     </div>
 
-    <script>
-
-        let btnText = document.querySelector('#toggleType span');
-
-        // toggle registratin type 
-        let toggleReg = document.getElementById('toggleType');
-        toggleReg.addEventListener('click', () => {
-            let topic = document.querySelector('h2 span');
-            let staff = document.querySelectorAll('.staffContent');
-
-            if (btnText.textContent == 'Staff') {
-                btnText.textContent = 'Customer';
-                topic.textContent = 'as Staff';
-                toggleReg.style.backgroundColor = '#a38645';
-                document.body.style.backgroundImage = "url('../assets/images/signup/milad-fakurian-ICTjWYzpoc0-unsplash.jpg')";
-
-                for (let i = 0; i < staff.length; i++ ) {
-                    staff[i].disabled = false;
-                }
-
-            } else {
-                btnText.textContent = 'Staff';
-                topic.textContent = '';
-                toggleReg.style.backgroundColor = '#708dcd';
-                document.body.style.backgroundImage = "url('../assets/images/signup/shubham-dhage-LtIf-DdfIgk-unsplash.jpg')";
-
-                for (let i = 0; i < staff.length; i++ ) {
-                    staff[i].disabled = true;
-                }
-            }
-        })
-
-
-        // jump to fieldset
-        function hopIntoField () {
-
-            let fieldSet = document.getElementsByTagName('fieldset');
-            let next = document.getElementById('nextBtn');
-            let prev = document.getElementById('prevBtn');
-            let submit = document.getElementById('submitBtn');
-            let current = 0;
-
-            // function to go through
-            function showField (index) {
-
-                for (let i = 0; i < fieldSet.length; i++) {
-                    fieldSet[i].style.display = 'none';
-                }
-
-                prev.style.display = (index === 0) ? 'none' : 'block';
-                next.style.display = (index === fieldSet.length - 1) ? 'none' : 'block';
-                submit.style.display = (index === fieldSet.length - 1) ? 'block' : 'none';
-
-                fieldSet[index].style.display = 'flex';
-
-            }
-            // go to next step
-            next.addEventListener('click', () => {
-
-                if ((current < fieldSet - 1) && (btnText.textContent === 'Customer' || current !== 3)) {
-                    current++;
-                    showField(current);
-                }
-                else if ((current < fieldSet - 1) && (btnText.textContent === 'Staff') && (current === 3)) {
-                    current += 2;
-                    showField(current);
-                } 
-                
-            });
-            // go to prev step
-            prev.addEventListener('click', () => {
-                
-                if ((current < fieldSet - 1) && (btnText.textContent === 'Customer' || current !== 5)) {
-                    current--;
-                    showField(current);
-                }
-                else if ((current < fieldSet - 1) && (btnText.textContent === 'Staff') && (current === 5)) {
-                    current -= 2;
-                    showField(current);
-                } 
-
-            });
-
-            showField(current);
-            
-        }
-
-        hopIntoField();
-
-        // selections
-        const districts = [
-            { value: 'colombo', text: 'Colombo' },
-            { value: 'gampaha', text: 'Gampaha' },
-            { value: 'kalutara', text: 'Kalutara' },
-            { value: 'kandy', text: 'Kandy' },
-            { value: 'matale', text: 'Matale' },
-            { value: 'nuwara-eliya', text: 'Nuwara Eliya' },
-            { value: 'galle', text: 'Galle' },
-            { value: 'hambantota', text: 'Hambantota' },
-            { value: 'jaffna', text: 'Jaffna' },
-            { value: 'kilinochchi', text: 'Kilinochchi' },
-            { value: 'mannar', text: 'Mannar' },
-            { value: 'vavuniya', text: 'Vavuniya' },
-            { value: 'mullaitivu', text: 'Mullaitivu' },
-            { value: 'batticaloa', text: 'Batticaloa' },
-            { value: 'ampara', text: 'Ampara' },
-            { value: 'trincomalee', text: 'Trincomalee' },
-            { value: 'kurunegala', text: 'Kurunegala' },
-            { value: 'puttalam', text: 'Puttalam' },
-            { value: 'anuradhapura', text: 'Anuradhapura' },
-            { value: 'polonnaruwa', text: 'Polonnaruwa' },
-            { value: 'badulla', text: 'Badulla' },
-            { value: 'monaragala', text: 'Monaragala' },
-            { value: 'ratnapura', text: 'Ratnapura' },
-            { value: 'kegalle', text: 'Kegalle' }
-        ];
-        const branches = [
-            { value: 'colombo', text: 'Colombo' },
-            { value: 'kandy', text: 'Kandy' },
-            { value: 'galle', text: 'Galle' },
-            { value: 'jaffna', text: 'Jaffna' },
-            { value: 'negombo', text: 'Negombo' },
-            { value: 'batticaloa', text: 'Batticaloa' },
-            { value: 'trincomalee', text: 'Trincomalee' },
-            { value: 'anuradhapura', text: 'Anuradhapura' },
-            { value: 'kurunegala', text: 'Kurunegala' },
-            { value: 'matara', text: 'Matara' },
-            { value: 'ratnapura', text: 'Ratnapura' },
-            { value: 'badulla', text: 'Badulla' },
-            { value: 'puttalam', text: 'Puttalam' },
-            { value: 'vavuniya', text: 'Vavuniya' },
-            { value: 'maharagama', text: 'Maharagama' }
-        ];
-        const positions = [
-            { value: 'software_engineer', text: 'Software Engineer' },
-            { value: 'data_analyst', text: 'Data Analyst' },
-            { value: 'product_manager', text: 'Product Manager' },
-            { value: 'graphic_designer', text: 'Graphic Designer' },
-            { value: 'marketing_manager', text: 'Marketing Manager' },
-            { value: 'sales_representative', text: 'Sales Representative' },
-            { value: 'human_resources_manager', text: 'Human Resources Manager' },
-            { value: 'customer_service_representative', text: 'Customer Service Representative' },
-            { value: 'financial_analyst', text: 'Financial Analyst' },
-            { value: 'project_manager', text: 'Project Manager' },
-            { value: 'business_analyst', text: 'Business Analyst' },
-            { value: 'software_developer', text: 'Software Developer' },
-            { value: 'ux_ui_designer', text: 'UX/UI Designer' },
-            { value: 'network_administrator', text: 'Network Administrator' },
-            { value: 'content_writer', text: 'Content Writer' },
-            { value: 'operations_manager', text: 'Operations Manager' },
-            { value: 'product_designer', text: 'Product Designer' },
-            { value: 'digital_marketing_specialist', text: 'Digital Marketing Specialist' },
-            { value: 'account_manager', text: 'Account Manager' },
-            { value: 'business_development_manager', text: 'Business Development Manager' }
-        ];
-        function popDropdown(container, optionList) {
-            let dropBox = document.getElementById(container);
-
-            optionList.forEach(element => {
-                let option = document.createElement('option');
-                option.value = element.value;
-                option.textContent = element.text;
-                dropBox.appendChild(option);
-            });
-        }
-        
-        popDropdown('userDistrict', districts);
-        popDropdown('staffBranch', branches);
-        popDropdown('staffPost', positions);
-
-        // toggle visibility
-        function toggleVisibility (inputField, imgPath) {
-            let textField = document.getElementById(inputField);
-
-            if (textField.type == 'password') {
-                textField.type = 'text';
-                imgPath.src = '../assets/images/signup/eye-solid.svg';
-            } else {
-                textField.type = 'password';
-                imgPath.src = '../assets/images/signup/eye-slash-solid.svg';   
-            }
-        }
-    </script>
+    <script src="../assets/scripts/signup/javascript.js"></script>
 
 </body>
 </html>

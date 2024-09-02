@@ -21,7 +21,10 @@
             <h2>Sign Up <span></span> </h2>
             
             <!-- form -->
-            <form action="" method="post">
+            <form action="../includes/signup/action.php" method="post">
+
+                <!-- whether as customer or staff -->
+                <input type="hidden" name="regType" id="regType" value="customer">
                 
                 <!-- personal details -->
                 <fieldset style="display: flex">

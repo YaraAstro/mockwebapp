@@ -79,10 +79,12 @@ toggleReg.addEventListener('click', () => {
     let btnText = document.querySelector('#toggleType span');
     let topic = document.querySelector('h2 span');
     let staff = document.querySelectorAll('.staffContent');
+    let mode = document.getElementById('regType');
 
     if (btnText.textContent == 'Staff') {
         btnText.textContent = 'Customer';
         topic.textContent = 'as Staff';
+        mode.value = 'staff';
         toggleReg.style.backgroundColor = '#a38645';
         document.body.style.backgroundImage = "url('../assets/images/signup/milad-fakurian-ICTjWYzpoc0-unsplash.jpg')";
 
@@ -90,15 +92,20 @@ toggleReg.addEventListener('click', () => {
 
         alert('You are registering as a Staff Member !');
 
+        console.log('Reg as = ', mode.value);
+
     } else {
         btnText.textContent = 'Staff';
         topic.textContent = '';
+        mode.value = 'customer';
         toggleReg.style.backgroundColor = '#708dcd';
         document.body.style.backgroundImage = "url('../assets/images/signup/shubham-dhage-LtIf-DdfIgk-unsplash.jpg')";
 
         staff.forEach((content) => content.disabled = true);
 
         alert('You are registering as a Regular Customer !');
+
+        console.log('Reg as = ', mode.value);
     }
 })
 

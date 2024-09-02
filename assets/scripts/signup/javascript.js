@@ -88,6 +88,8 @@ toggleReg.addEventListener('click', () => {
 
         staff.forEach((content) => content.disabled = false);
 
+        alert('You are registering as a Staff Member !');
+
     } else {
         btnText.textContent = 'Staff';
         topic.textContent = '';
@@ -95,6 +97,8 @@ toggleReg.addEventListener('click', () => {
         document.body.style.backgroundImage = "url('../assets/images/signup/shubham-dhage-LtIf-DdfIgk-unsplash.jpg')";
 
         staff.forEach((content) => content.disabled = true);
+
+        alert('You are registering as a Regular Customer !');
     }
 })
 

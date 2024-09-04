@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* 
+    font-family: "Poppins", sans-serif;
+    font-family: "Abril Fatface", serif;
+*/
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    /* transition: all .35s ease-in-out; */
+}
+
+a{
+    color: initial;
+    text-decoration: none;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.mainFrame {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.mainFrame .innerFrame:nth-child(1) {
+    flex: 3 ;
+}
+
+.mainFrame .innerFrame:nth-child(2) {
+    flex: 1 ;
+}
+
+/* user image & name */
+
+.mainFrame .innerFrame:nth-child(1) {
+    display: flex;
+    align-items: flex-start;
+}
+
+.mainFrame .innerFrame:nth-child(1) .dashFrame:nth-child(1) {
+    min-height: 100vh;
+    flex: 2;
+}
+
+.mainFrame .innerFrame:nth-child(1) .dashFrame:nth-child(1) .initDetails {
+    min-height: 100vh;
+    width: 21.428%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.initDetails .dashBlock:nth-child(1) {
+    background-image: url('https://cdni.pornpics.com/1280/7/573/86869390/86869390_019_fe26.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 60vh;
+}
+
+.initDetails .dashBlock:nth-child(2) {
+    background-color: lightgray;
+    width: 100%;
+    height: 40vh;
+}
+
+.initDetails .dashBlock:nth-child(2) h3 {
+    font-size: 2.5em;
+    width: 50%;
+    font-weight: normal;
+    color: rgb(75, 75, 75);
+    margin-left: 35px;
+    margin-top: 15px;
+}
+
+/* user details */
+
+.mainFrame .innerFrame:nth-child(1) .dashFrame:nth-child(2) {
+    flex: 5;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.displayData {
+    width: 85%;
+    background-color: gainsboro;
+    padding: 35px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.displayData h4 {
+    font-weight: 600;
+    color: rgb(100, 100, 100);
+    width: 100%;
+}
+
+.displayData .dataBlock {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.displayData .dataBlock .block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.displayData .dataBlock .block .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.displayData .dataBlock .block .row .box {
+    flex: 1;
+    border: 1px solid grey;
+    padding: 10px 0;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.displayData .dataBlock .block .row p {
+    text-align: right;
+    width: 75%;
+    font-size: 1.25em;
+}
+
+/* labels */
+
+.box::after {
+    position: absolute;
+    border: none;
+    font-size: 0.65em;
+    /* text-transform: capitalize; */
+    font-weight: 600; 
+    background-color: gainsboro;
+    color: grey;
+    top: -15px;
+    left: 20px;
+    z-index: 5;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#firstName::after {
+    content : 'First Name';
+}
+
+#lastName::after {
+    content: 'Last Name';
+}
+
+#doBirth::after {
+    content: 'Date of Birth';
+}
+
+#gender::after {
+    content: 'Gender';
+}
+
+#nic::after {
+    content: 'NIC Number';
+}
+
+#addresss::after {
+    content: 'Address';
+}
+
+#district::after {
+    content: 'District';
+}
+
+#postalCode::after {
+    content: 'Postal Code';
+}
+
+#email::after {
+    content: 'Email';
+}
+
+#mobile::after {
+    content: 'Mobile No.';
+}
+
+/* dashboar buttons */
+
+
+.mainFrame .innerFrame:nth-child(2) .buttonsBlock {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 25%;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.buttonsBlock a{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+    transition: all .35s ease-in-out;
+}
+
+.buttonsBlock .profileButtons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.buttonsBlock .profileButtons .svgXML {
+    width: 50px;
+}
+
+.buttonsBlock .profileButtons .svgXML svg {
+    width: 100%;
+}
+
+.buttonsBlock .profileButtons p {
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+
+.buttonsBlock a:hover .profileButtons p {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.buttonsBlock a:nth-child(1) {
+    background-color: darkmagenta;
+    color: violet;
+}
+
+.buttonsBlock a:nth-child(1):hover {
+    background-color: violet;
+    color: darkmagenta;
+}
+
+.buttonsBlock a:nth-child(2) {
+    background-color: darkblue;
+    color: lightblue;
+}
+
+.buttonsBlock a:nth-child(2):hover {
+    background-color: lightblue;
+    color: darkblue;
+}
+
+.buttonsBlock a:nth-child(3) {
+    background-color: darkgreen;
+    color: lightgreen;
+}
+
+.buttonsBlock a:nth-child(3):hover {
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.buttonsBlock a:nth-child(4) {
+    background-color: darkgoldenrod;
+    color: palegoldenrod;
+}
+
+.buttonsBlock a:nth-child(4):hover {
+    background-color: palegoldenrod;
+    color: darkgoldenrod;
+}
+
+.buttonsBlock a:nth-child(5) {
+    background-color: maroon;
+    color: lightcoral;
+}
+
+.buttonsBlock a:nth-child(5):hover {
+    background-color: lightcoral;
+    color: maroon;
+}

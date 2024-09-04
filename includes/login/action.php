@@ -23,8 +23,10 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
         $_SESSION['user_id'] = $customer_data['customer_id'];
         $_SESSION['user_name'] = $customer_data['first_name'].' '.$customer_data['last_name'];
         $_SESSION['user_type'] = 'customer';
+        $_SESSION['id_column'] = 'customer_id';
 
-        echo "Login Successfull \n" . $_SESSION['user_name'];
+        header("Location: ../../pages/dashboard.php");
+        exit();
     
     } else {
        
@@ -41,8 +43,10 @@ if ( $_SERVER["REQUEST_METHOD"] == "POST" ) {
             $_SESSION['user_id'] = $staff_member_data['staff_id'];
             $_SESSION['user_name'] = $staff_member_data['first_name'].' '.$staff_member_data['last_name'];
             $_SESSION['user_type'] = 'staff_member';
+            $_SESSION['id_column'] = 'staff_id';
 
-            echo "Login Successfull \n" . $_SESSION['user_name'];
+            header("Location: ../../pages/dashboard.php");
+            exit();
 
         } else {
 

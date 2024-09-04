@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
+    transition: all .35s ease-in-out;
 }
 
 a{
@@ -25,7 +26,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all .35s ease-in-out;
 }
 
 body::after {

@@ -1,5 +1,4 @@
 // select option data
-
 const districts = [
     { value: 'colombo', text: 'Colombo' },
     { value: 'gampaha', text: 'Gampaha' },

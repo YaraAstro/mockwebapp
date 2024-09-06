@@ -16,7 +16,7 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
         $data = $details -> fetch_assoc();
     }
     
-    echo $sql;
+    // echo $sql;
 
 } else {
     header("Location: ../pages/login.html");
@@ -30,7 +30,7 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Dashboard | Mock App</title>
+    <title><?php echo $_SESSION['user_name'] ?> | Profile Dashboard | Mock App</title>
     <link rel="stylesheet" href="../assets/styles/dashboard/styles.css">
 </head>
 <body>
@@ -42,7 +42,11 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
             <div class="dashFrame">
 
                 <div class="initDetails">
-                    <div class="dashBlock"></div>
+                    <?php
+                        !empty($data['profile_picture_path']) ? $img_path = $data['profile_picture_path'] : $img_path = '../assets/images/dashboard/5481365_2813838.jpg'; 
+                     ?>
+                    <div style="background-image: url(<?php echo $img_path ?>);" class="dashBlock">
+                    </div>
                     <div class="dashBlock">
                         <h3><?php echo $_SESSION['user_name'] ?></h3>
                     </div>
@@ -147,7 +151,7 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
                     </div>
                 </a>
                 
-                <a href="">
+                <a href="./settings.php">
                     <div class="profileButtons">
                         <div class="svgXML">
                             <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>

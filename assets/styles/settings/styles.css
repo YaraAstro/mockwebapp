@@ -1,0 +1,521 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* 
+    font-family: "Poppins", sans-serif;
+    font-family: "Abril Fatface", serif;
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    /* transition: all .35s ease-in-out; */
+}
+
+a{
+    color: initial;
+    text-decoration: none;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.mainFrame {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+.mainFrame .innerFrame:nth-child(1) {
+    flex: 1;
+    min-height: 100vh;
+}
+
+.mainFrame .innerFrame:nth-child(2) {
+    flex: 5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* button frame */
+
+.mainFrame .innerFrame:nth-child(1) .buttonBox {
+    width: 16.667%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    position: fixed;
+    z-index: 10;
+}
+
+.buttonBox a {
+    flex: 1;
+    text-transform: capitalize;
+    background-color: teal;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    transition: all .35s ease-in-out;
+}
+
+.buttonBox .box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.buttonBox .box .icon {
+    width: 25px;
+}
+
+.buttonBox .box .icon svg {
+    width: 100%;
+}
+
+.buttonBox .box p {
+    font-size: 1em;
+    letter-spacing: 1px;
+    width: fit-content;
+}
+
+.buttonBox a:hover {
+    background-color: whitesmoke;
+    color: darkgreen;
+    text-transform: uppercase;
+}
+
+/* data form */
+
+.block {
+    padding: 25px;
+    border-radius: 15px;
+    background-color: gainsboro;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin: 25px 0;
+}
+
+.block .formBlock {
+    padding: 10px 25px 25px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.block .formBlock h3 {
+    font-weight: normal;
+    text-transform: capitalize;
+    font-size: 1.75em;
+}
+
+.block .formBlock form,
+.block .formBlock form .subForm {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.block .formBlock .rowForm {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.block .formBlock form .row,
+.block .formBlock form .dataBox {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+.three {
+    flex: 3;
+}
+
+.two {
+    flex: 2;
+}
+
+.one {
+    flex: 1;
+}
+
+.evenly {
+    justify-content: space-evenly;
+}
+
+.centerFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block .formBlock form label,
+.block .formBlock form .label {
+    position: absolute;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+    font-weight: 600;
+    left: 35px;
+    top: -10px;
+    z-index: 5;
+    background-color: gainsboro;
+    padding: 0 5px;
+}
+
+.block .formBlock form .imgLabel {
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.block .formBlock form textarea,
+.block .formBlock form input,
+.block .formBlock form .data,
+.block .formBlock form select {
+    width: 100%;
+    border: 1px solid silver;
+    outline: none;
+    background-color: transparent;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 1em;
+    text-align: right;
+    transition: all .35s ease-in-out;
+}
+
+.block .formBlock form textarea:focus,
+.block .formBlock form input:focus,
+.block .formBlock form select:focus {
+    border: 1px solid gray;
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.passwordButton:hover ~ .inputPasswords {
+    border: 1px solid gray;
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.block .formBlock form .centerFlex img {
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+    transition: all .35s ease-in-out;
+}
+
+
+.block .formBlock form .imgLabel img:hover {
+    box-shadow: 0 3px 10px rgba(24, 24, 24, 0.9);
+}
+
+.block .formBlock form .userImg img:hover {
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.block .formBlock form .inputPasswords {
+    text-align: left;
+    padding: 5px 50px 5px 15px;
+}
+
+.block .formBlock form .dataBox img {
+    width: 25px;
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    transition: all .35s ease-in-out;
+} 
+
+.block .formBlock .rowForm .subForm:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.block .formBlock .rowForm .subForm:nth-child(1) p {
+    font-size: .85em;
+    font-weight: 600;
+    color: gray;
+}
+
+.block .formBlock form .docRow {
+    display: flex;
+    gap: 15px;
+}
+
+/* 
+========================================================
+upload documents
+*/
+
+.block .formBlock form .row .descBox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.block .formBlock form .row .descBox .topic {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.block .formBlock form .row .descBox .desc {
+    font-size: 0.85em;
+    width: 70%;
+    margin-left: 20px;
+}
+
+.block .formBlock form .row .docLabel {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 75%;
+    border-radius: 15px;
+    aspect-ratio: 1 / 1;
+    transition: all .35s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.block .formBlock form .row .docLabel::after {
+    content: 'CHANGE';
+    position: absolute;
+    top: -30px;
+    left: -15px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    font-size: 4.1em;
+    color: rgba(192, 192, 192, 0.35);
+    transition: all .35s ease-in-out;
+}
+
+.block .formBlock form .row .docLabel::before {
+    content: 'CHANGE';
+    position: absolute;
+    bottom: -30px;
+    left: -15px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    font-size: 4.1em;
+    color: rgba(192, 192, 192, 0.35);
+    transition: all .35s ease-in-out;
+}
+
+.block .formBlock form .row .docLabel:hover {
+    box-shadow: 0 5px 10px rgba(128, 128, 128, 0.5);
+}
+
+.block .formBlock form .row .docLabel:hover:before {
+    color: silver;
+}
+
+.block .formBlock form .row .docLabel:hover:after {
+    color: silver;
+}
+
+.block .formBlock form .row .docLabel .svg {
+    width: 75px;
+}
+
+.block .formBlock form .row .docLabel .svg svg {
+    width: 100%;
+}
+
+.block .formBlock form .row .docLabel p {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.25em;
+}
+
+.docButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.docButtons a{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 15px;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: silver;
+    padding: 10px 35px;
+    border-radius: 20px;
+    min-width: 125px;
+    color: whitesmoke;
+    transition: all .35s ease-in-out;
+}
+
+.docButtons a:hover {
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.docButtons a:nth-child(3):hover {
+    background-color: cornflowerblue;
+    color: navy;
+}
+
+.docButtons .docState {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 15px;
+    width: fit-content;
+    font-size: 1em;
+    padding: 15px 35px;  
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    color: gray; 
+}
+
+.docButtons .approved {
+    border: 1px solid limegreen;
+    color: limegreen; 
+}
+
+.docButtons .pending {
+    border: 1px solid cornflowerblue;
+    color: cornflowerblue; 
+}
+
+.docButtons .empty {
+    border: 1px solid crimson;
+    color: crimson; 
+}
+
+.docButtons a .svg {
+    width: 25px;
+}
+
+.docButtons a .svg svg {
+    width: 100%;
+}
+
+/* form buttons */
+
+.leftBtnBox {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rightBtnBox {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.leftBtnBox button ,
+.rightBtnBox button {
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: gray;
+    color: ghostwhite;
+    transition: all .35s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.leftBtnBox button .icon,
+.rightBtnBox button .icon {
+    width: 20px;
+    top: 2px;
+}
+
+.leftBtnBox button .icon svg,
+.rightBtnBox button .icon svg {
+    width: 100%;
+}
+
+.leftBtnBox button p,
+.rightBtnBox button p {
+    font-size: 1em;
+    letter-spacing: 1px;
+    min-width: 65px;
+}
+
+.leftBtnBox button:hover ,
+.rightBtnBox button:hover {
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+    text-transform: uppercase;
+}
+
+.leftBtnBox button:nth-child(1):hover ,
+.rightBtnBox button:nth-child(2):hover {
+    background-color: lightgreen;
+    color: green;
+}
+
+.leftBtnBox button:nth-child(2):hover ,
+.rightBtnBox button:nth-child(1):hover {
+    background-color: lightcoral;
+    color: crimson;
+}
+
+/*
+================================================================================================
+    bio  
+*/
+
+.descFrame {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: stretch;
+}
+
+.descFrame h4 {
+    font-weight: 600;
+    font-size: 1.35em;
+    width: 75%;
+    text-align: right;
+    margin-left: 20%;
+}
+
+.descFrame p {
+    font-size: 1em;
+    width: 85%;
+    margin-left: 5%;
+}

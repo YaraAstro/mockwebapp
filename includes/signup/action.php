@@ -94,7 +94,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ( $stmt -> execute() ) {
-        echo "Registration Successfull !";
+
+        // start the session
+        session_start();
+
+        $_SESSION['user_id'] = $user_id ;
+        $_SESSION['user_name'] = $first_name." ".$last_name ;
+
+        if ( $reg_type == 'staff' ) {
+            $_SESSION['user_type'] = 'staff_member';
+            $_SESSION['id_column'] = 'staff_id';
+        } else {
+            $_SESSION['user_type'] = 'customer';
+            $_SESSION['id_column'] = 'customer_id';
+        }
+
+        header("Location: ../../pages/dashboard.php");
+        exit();
     } else {
         echo "Error : " . $stmt -> error;
     }

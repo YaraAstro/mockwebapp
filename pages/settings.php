@@ -47,6 +47,7 @@ function calcAge ($dob) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_SESSION['user_name'] ?> | Settings | Mock App</title>
     <link rel="stylesheet" href="../assets/styles/settings/styles.css">
+    <link rel="stylesheet" href="../assets/styles/scrollbarStyles.css">
 </head>
 <body>
     <div class="mainFrame">
@@ -142,20 +143,20 @@ function calcAge ($dob) {
                                 </div>
                                 <div class="dataBox">
                                     <label for="lastName">Last Name</label>
-                                    <input type="text" name="lastName" id="lastName" value="<?php echo $data['last_name'] ?>">
+                                    <input type="text" name="lastName" id="lastName" value="<?php echo $data['last_name'] ?>" >
                                 </div>
                                 <div class="dataBox">
                                     <p class="label">Full Name</p>
-                                    <p id="fullName" class="data"><?php echo $_SESSION['user_name']." ". $_SESSION['user_type'] ?></p>
+                                    <p id="fullName" class="data"><?php echo $_SESSION['user_name'] ?></p>
                                 </div>
                             </div>
                             <div class="subForm one centerFlex">
                                 <label class="imgLabel" for="userImg">
-                                    <input type="file" name="userImg" id="userImg" hidden value="<?php echo $data['profile_picture_path'] ?>">
+                                    <input type="file" name="userImg" id="userImg" hidden>
                                     <?php
                                         !empty($data['profile_picture_path']) ? $img_path = $data['profile_picture_path'] : $img_path = '../assets/images/dashboard/5481365_2813838.jpg'; 
                                     ?>
-                                    <img src="<?php echo $img_path ?>" alt="">
+                                    <img id="showPic" src="<?php echo $img_path ?>" alt="profile-picture">
                                 </label>
                             </div>
                         </div>
@@ -404,6 +405,7 @@ function calcAge ($dob) {
                                 <p id="spchar-error">Password must contain at least one Special Character (!@#$%^&*(),.?":{}|><).</p>
                                 <p id="number-error">Password mustcontain atleast one Numeric Character (0-9).</p>
                                 <p id="char-count">Password must be at least 8 characters long.</p>
+                                <p class="errorMsg" id="error-msg"></p>
                             </div>
                             <div class="subForm one">
                                     <div class="dataBox">
@@ -424,7 +426,7 @@ function calcAge ($dob) {
                             </div>
                         </div>
                         <div class="leftBtnBox">
-                            <button type="submit">
+                            <button id="resetPwdBtn" type="submit">
                                 <div class="icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                                 </div>
@@ -445,6 +447,25 @@ function calcAge ($dob) {
     </div>
 
     <script src="../assets/scripts/settigns/javasript.js"></script>
+
+    <script>
+        // reset password
+        let nowPwdInput = document.getElementById('currentPwd');
+        nowPwdInput.addEventListener('input', () => {
+            let errorMsg = document.getElementById('error-msg');
+            let submit = document.getElementById('resetPwdBtn');
+            let nowPwd = "<?php echo $data['password'] ?>";
+            
+            if (nowPwdInput.value === nowPwd || nowPwdInput.value === '' ) {
+                errorMsg.textContent = '';
+                submit.disabled = false;
+            } else {
+                errorMsg.textContent = 'Enter your Current Password';
+                submit.disabled = true;
+            }
+        });
+
+    </script>
     
 </body>
 </html>

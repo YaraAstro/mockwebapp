@@ -84,8 +84,8 @@ function popDropdown(container, optionList) {
 }
 
 popDropdown('userDistrict', districts);
-popDropdown('userBranch', branches);
-popDropdown('userPost', positions);
+// popDropdown('userBranch', branches);
+// popDropdown('userPost', positions);
 
 
 
@@ -151,4 +151,53 @@ dob.addEventListener('input', () => {
 
 
 // ===========================================================================================================================
+// validate new password
+let newPwd = document.getElementById('createPwd');
+newPwd.addEventListener('input', () => {
 
+    let checkCapital = document.getElementById('capital-error');
+    let checkSpChar = document.getElementById('spchar-error');
+    let checkNums = document.getElementById('number-error');
+    let checkCount = document.getElementById('char-count');
+    let submit = document.getElementById('resetPwdBtn');
+
+    !/[A-Z]/.test(newPwd.value) ? checkCapital.style.color = 'rosybrown' : checkCapital.style.color = 'olivedrab' ;
+    !/[! @ # $ % ^ & * () , ? " : {} | <>]/.test(newPwd.value) ? checkSpChar.style.color = 'rosybrown' : checkSpChar.style.color = 'olivedrab' ;
+    !/[0-9]/.test(newPwd.value) ? checkNums.style.color = 'rosybrown' : checkNums.style.color = 'olivedrab' ;
+    newPwd.value.length >= 8 ? checkCount.style.color = 'olivedrab' : checkCount.style.color = 'rosybrown' ;
+
+    if ( !/[A-Z]/.test(newPwd.value) || !/[! @ # $ % ^ & * () , ? " : {} | <>]/.test(newPwd.value) || !/[0-9]/.test(newPwd.value) || newPwd.value.length <= 8 ) {
+        submit.disabled = true;
+    } else {
+        submit.disabled = false;
+    }
+
+});
+
+// confirm new password
+let confirmNew = document.getElementById('confirmPwd');
+confirmNew.addEventListener('input', () => {
+    let newPwd = document.getElementById('createPwd');
+    let errorMsg = document.getElementById('error-msg');
+    let submit = document.getElementById('resetPwdBtn');
+
+    confirmNew.value != newPwd.value ? errorMsg.textContent = 'Passwords doesn\'t match!' : errorMsg.textContent = '' ;
+    confirmNew.value === newPwd.value ? submit.disabled = false : submit.disabled = true ;
+
+});
+
+
+
+// ===========================================================================================================================
+// image upload
+let getImg = document.getElementById('userImg');
+getImg.addEventListener('change', (event) => {
+    let pic = event.target.files[0];
+    if (pic) {
+        let showImg = document.getElementById('showPic');
+        let newSrc = URL.createObjectURL(pic);
+
+        showImg.src = newSrc;
+        showImg.onload = () => URL.revokeObjectURL(newSrc)
+    }
+});

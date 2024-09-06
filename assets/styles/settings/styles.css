@@ -519,3 +519,7 @@ upload documents
     width: 85%;
     margin-left: 5%;
 }
+
+.formBlock .subForm .errorMsg {
+    color: maroon !important;
+}

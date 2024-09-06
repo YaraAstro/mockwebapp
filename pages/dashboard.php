@@ -79,7 +79,7 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
                             </div>
                             <div class="row">
                                 <div id="nic" class="box">
-                                    <p><?php echo $data['nic_number'] ?>r</p>
+                                    <p><?php echo $data['nic_number'] ?></p>
                                 </div>
                             </div>
                         </div>

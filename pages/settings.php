@@ -291,7 +291,7 @@ function calcAge ($dob) {
                 <!-- upload docs -->
                 <div id="docI" class="formBlock">
                     <h3>documents</h3>
-                    <form action="../includes/settings/upload_documents.php" method="post">
+                    <form action="../includes/settings/upload_documents.php" method="post" enctype="multipart/form-data">
                         <!-- nic upload -->
                         <div class="row">
                             <div class="one descBox">
@@ -332,12 +332,12 @@ function calcAge ($dob) {
                                         <p class="desc">Updating your resume regularly keeps you prepared for new opportunities and showcases your latest skills and achievements.</p>
                                     </div>
                                     <div class="one centerFlex">
-                                        <label class="docLabel" for="nicScan">
+                                        <label class="docLabel" for="cvScan">
                                             <div class="svg">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M496 152a56 56 0 00-56-56H220.11a23.89 23.89 0 01-13.31-4L179 73.41A55.77 55.77 0 00147.89 64H72a56 56 0 00-56 56v48a8 8 0 008 8h464a8 8 0 008-8zM16 392a56 56 0 0056 56h368a56 56 0 0056-56V216a8 8 0 00-8-8H24a8 8 0 00-8 8z"/></svg>
                                             </div>
                                             <p>Drop|Click</p>
-                                            <input type="file" name="nicScan" id="nicScan" hidden>
+                                            <input type="file" name="cvScan" id="cvScan" hidden>
                                         </label>
                                     </div>
                                     <div class="one docButtons">

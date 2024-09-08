@@ -32,6 +32,7 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_SESSION['user_name'] ?> | Profile Dashboard | Mock App</title>
     <link rel="stylesheet" href="../assets/styles/dashboard/styles.css">
+    <link rel="stylesheet" href="../assets/styles/scrollbarStyles.css">
 </head>
 <body>
     <div class="mainFrame">
@@ -105,6 +106,8 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
                                 <div id="email" class="box">
                                     <p><?php echo $data['email'] ?></p>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div id="mobile" class="box">
                                     <p><?php echo $data['contact_number'] ?></p>
                                 </div>

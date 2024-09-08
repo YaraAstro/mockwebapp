@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $nic = $user_id.'_nic_scan'.pathinfo($_POST['nicScan']['name'], PATHINFO_EXTENSION);
 
-        $nic_path = '../../documents/staff/nic_scan/'.$nic ;
+        $nic_path = '../../documents/customer/nic_scan/'.$nic ;
 
         move_uploaded_file($_FILES['nicScan']['tmp_name'], $nic_path);
 

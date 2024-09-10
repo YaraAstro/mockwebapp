@@ -46,6 +46,9 @@ function calcAge ($dob) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_SESSION['user_name'] ?> | Settings | Mock App</title>
+    
+    <link rel="icon" href="../assets/images/poo_solid.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="../assets/styles/settings/styles.css">
     <link rel="stylesheet" href="../assets/styles/scrollbarStyles.css">
 </head>
@@ -250,7 +253,7 @@ function calcAge ($dob) {
                 <?php
                 
                 if ( $_SESSION['user_type'] == 'staff_member' ) {
-                    echo `
+                    echo '
                     <div id="proI" class="formBlock">
                         <h3>Proffessional Information</h3>
                         <form action="../includes/settings/upload_proffessional_info.php" method="post">
@@ -258,13 +261,13 @@ function calcAge ($dob) {
                                 <div class="dataBox two">
                                     <label for="userPost">Position</label>
                                     <select name="userPost" id="userPost">
-                                        <option value="`.$data['position'].`">`.$data['position'].`</option>
+                                        <option value="'.$data['position'].'">'.$data['position'].'</option>
                                     </select>
                                 </div>
                                 <div class="dataBox one">
                                     <label for="userBranch">Branch</label>
                                     <select name="userBranch" id="userBranch">
-                                        <option value="`.$data['branch'].`">`.$data['branch'].`</option>
+                                        <option value="'.$data['branch'].'">'.$data['branch'].'</option>
                                     </select>
                                 </div>
                             </div>
@@ -284,7 +287,7 @@ function calcAge ($dob) {
                             </div>
                         </form>
                     </div>
-                    `;
+                    ';
                 }
                 
                 ?>

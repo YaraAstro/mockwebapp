@@ -26,3 +26,252 @@ a{
 body {
     background-color: whitesmoke;
 }
+
+.mainFrame {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+.mainFrame .subFrame:nth-child(1) {
+    flex: 1;
+    min-height: 100vh;
+}
+
+.mainFrame .subFrame:nth-child(2) {
+    flex: 5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* [navigation] side bar */
+
+
+.mainFrame .subFrame:nth-child(1) .sideFrame {
+    width: 16.667%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    position: fixed;
+    z-index: 10;
+}
+
+.sideFrame a {
+    flex: 1;
+    text-transform: capitalize;
+    background-color: teal;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    transition: all .35s ease-in-out;
+}
+
+.sideFrame .sideBtn {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.sideFrame .sideBtn .icon {
+    width: 25px;
+}
+
+.sideFrame .sideBtn .icon svg {
+    width: 100%;
+}
+
+.sideFrame .sideBtn p {
+    font-size: 1em;
+    letter-spacing: 1px;
+    width: fit-content;
+}
+
+.sideFrame a:hover {
+    background-color: whitesmoke;
+    color: darkgreen;
+    text-transform: uppercase;
+}
+
+.viewData {
+    width: 100%;
+}
+
+/* .table */
+
+.data-block {
+    width: 90%;
+    left: 2.5%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 2.5%;
+    border-radius: 25px;
+}
+
+.data-block .data-row {
+    border: 1px solid silver;
+    border-radius: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    padding-right: 25px;
+    transition: all .35s ease-in-out;
+}
+
+.data-block .data-row:hover {
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.data-block .data-row .img-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.data-block .data-row .img-box img {
+    width: 200%;
+    right: 50%;
+}
+
+.data-block .data-row .row {
+    display: flex;
+    align-items: center;
+}
+
+.data-block .data-row .row .data {
+    align-content: center;
+    font-size: 1.15em;
+    min-width: 100px;
+    padding: 5px 15px;
+}
+
+.data-block .data-row .actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.actions .tableAct {
+    display: flex;
+    gap: 7.5px;
+    align-items: center;
+    padding: 5px 30px;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+.actions .tableAct:first-child {
+    border: 1px solid cornflowerblue;
+    color: cornflowerblue;
+}
+
+.actions .tableAct:last-child {
+    border: 1px solid green;
+    color: green;
+}
+
+.actions .tableAct:first-child:hover {
+    border: 1px solid cornflowerblue;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+}
+
+.actions .tableAct:last-child:hover {
+    border: 1px solid green;
+    background-color: green;
+    color: whitesmoke;
+}
+
+.actions .tableAct .icon {
+    width: 20px;
+    height: 20px;
+    top: -15px;
+}
+
+.actions .tableAct .icon svg {
+    width: 100%;
+}
+
+/* table bottom */
+
+.tableBottom {
+    width: 90%;
+    left: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableBottom .query {
+    font-size: .9em;
+    font-weight: 500;
+    color: silver;
+}
+
+.tableBottom .paginBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tableBottom .paginBox .pagBtn {
+    font-weight: 600;
+    color: grey;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 1px 10px;
+    cursor: pointer;
+    transition: all .35s ease-in-out;
+}
+
+.tableBottom .paginBox .pagBtn:focus,
+.tableBottom .paginBox .pagBtn:hover {
+    color: whitesmoke;
+    background-color: grey;
+}
+
+/* search bar */
+
+.searchBox {
+    width: fit-content;
+    left: 42.5vw;
+    margin-bottom: 15px;
+}
+
+.searchBox input {
+    font-size: 1.15em ;
+    min-width: 35vw;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px 35px 5px 15px;
+}
+
+.searchBox input:focus {
+    background-color: rgb(255, 247, 237);
+    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+}
+
+.searchBox .icon {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    top: -5px;
+}
+
+.searchBox .icon svg {
+    width: 100%;
+}
+

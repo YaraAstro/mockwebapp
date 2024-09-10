@@ -31,6 +31,9 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_SESSION['user_name'] ?> | Profile Dashboard | Mock App</title>
+
+    <link rel="icon" href="../assets/images/poo_solid.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="../assets/styles/dashboard/styles.css">
     <link rel="stylesheet" href="../assets/styles/scrollbarStyles.css">
 </head>

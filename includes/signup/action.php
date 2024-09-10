@@ -75,6 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file( $_FILES['userNICScan']['tmp_name'], $scan_of_nic_path);
         move_uploaded_file( $_FILES['staffCV']['tmp_name'], $resume_path);
 
+        $profile_picture_path = str_replace('../../', '../', $profile_picture_path);
+        $scan_of_nic_path = str_replace('../../', '../', $scan_of_nic_path);
+        $resume_path = str_replace('../../', '../', $resume_path);
+
         // set SQL query for insert staff members
         $sql = "INSERT INTO staff_member (staff_id, first_name, last_name, date_of_birth, gender, address, district, postal_code, nic_number, email, contact_number, password, position, branch, profile_picture_path, nic_scan_path, resume_path, created_at)
             VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";

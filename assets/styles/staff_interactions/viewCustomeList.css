@@ -1,174 +1,256 @@
 /* .table */
 
-.data-block {
-    width: 90%;
-    left: 2.5%;
-    background-color: gainsboro;
+.mainFrame .innerFrame:nth-child(2) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 50px;
+}
+
+.viewData {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 2.5%;
-    border-radius: 25px;
-}
-
-.data-block .data-row {
-    border: 1px solid silver;
-    border-radius: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 10px;
-    padding-right: 25px;
-    transition: all .35s ease-in-out;
-}
-
-.data-block .data-row:hover {
-    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
-}
-
-.data-block .data-row .img-box {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.data-block .data-row .img-box img {
-    width: 200%;
-    right: 50%;
-}
-
-.data-block .data-row .row {
-    display: flex;
-    align-items: center;
-}
-
-.data-block .data-row .row .data {
-    align-content: center;
-    font-size: 1.15em;
-    min-width: 100px;
-    padding: 5px 15px;
-}
-
-.data-block .data-row .actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.actions .tableAct {
-    display: flex;
-    gap: 7.5px;
-    align-items: center;
-    padding: 5px 30px;
-    border-radius: 35px;
-    cursor: pointer;
-    transition: all .35s ease-in-out;
-}
-
-.actions .tableAct:first-child {
-    border: 1px solid cornflowerblue;
-    color: cornflowerblue;
-}
-
-.actions .tableAct:last-child {
-    border: 1px solid green;
-    color: green;
-}
-
-.actions .tableAct:first-child:hover {
-    border: 1px solid cornflowerblue;
-    background-color: cornflowerblue;
-    color: whitesmoke;
-}
-
-.actions .tableAct:last-child:hover {
-    border: 1px solid green;
-    background-color: green;
-    color: whitesmoke;
-}
-
-.actions .tableAct .icon {
-    width: 20px;
-    height: 20px;
-    top: -15px;
-}
-
-.actions .tableAct .icon svg {
-    width: 100%;
-}
-
-/* table bottom */
-
-.tableBottom {
-    width: 90%;
-    left: 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.tableBottom .query {
-    font-size: .9em;
-    font-weight: 500;
-    color: silver;
-}
-
-.tableBottom .paginBox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.tableBottom .paginBox .pagBtn {
-    font-weight: 600;
-    color: grey;
-    border: 2px solid grey;
-    border-radius: 5px;
-    padding: 1px 10px;
-    cursor: pointer;
-    transition: all .35s ease-in-out;
-}
-
-.tableBottom .paginBox .pagBtn:focus,
-.tableBottom .paginBox .pagBtn:hover {
-    color: whitesmoke;
-    background-color: grey;
+    gap: 25px;
 }
 
 /* search bar */
 
 .searchBox {
-    width: fit-content;
-    left: 42.5vw;
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 40vw;
+    left: 25%;
 }
 
 .searchBox input {
-    font-size: 1.15em ;
-    min-width: 35vw;
-    border: none;
+    padding: 5px 50px 5px 10px;
     outline: none;
+    border: none;
+    width: 100%;
+    font-size: 16px;
     border-radius: 10px;
-    padding: 5px 35px 5px 15px;
-}
-
-.searchBox input:focus {
-    background-color: rgb(255, 247, 237);
-    box-shadow: 0 3px 5px rgba(128, 128, 128, 0.5);
+    transition: all ease-in-out .45s;
 }
 
 .searchBox .icon {
-    width: 25px;
-    height: 25px;
+    width: 45px;
+    height: 35px;
     position: absolute;
-    right: 5px;
-    top: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 1px solid silver;
+    color: silver;
+    transition: all ease-in-out .45s;
+    cursor: pointer;
 }
 
 .searchBox .icon svg {
+    width: 20px;
+}
+
+.searchBox input:focus ,
+.searchBox input:hover{
+    box-shadow: 0 3px 5px gainsboro;
+}
+
+.searchBox .icon:hover {
+    background-color: silver;
+    color: whitesmoke;
+}
+
+/* customer card content */
+
+.data-block {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 15px;
+    background-color: #faebd7;
+    min-height: 300px;
+}
+
+.card .cardFrame:nth-child(1) {
+    width: 100%;
+    flex: 1;
+    border-radius: 15px;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.card .cardFrame:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    /* border-radius: 15px; */
+    background: linear-gradient(to top, rgb(47, 36, 48) 0%,rgba(250, 235, 215, 0) 65%);
+}
+
+.card .cardFrame:nth-child(2) {
+    width: 100%;
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+}
+
+.card .cardFrame:nth-child(2) h3 {
+    text-transform: uppercase;
+    width: 50%;
+    font-size: 1.5em;
+    line-height: 1em;
+    margin-left: 5%;
+    margin-bottom: 50px;
+    color: gainsboro;
+    opacity: 0.75;
+}
+
+.card .cardFrame:nth-child(2) .btnBox {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    gap: 1px;
+    border-bottom-right-radius: 12.5px;
+    border-top-left-radius: 20px;
+}
+
+
+.card .cardFrame:nth-child(2) .btnBox a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    transition: all ease-in-out .45s;
+    z-index: 5;
+    background-color: rgba(220, 220, 220, 0.5);
+    color: azure;
+}
+
+.card .cardFrame:nth-child(2) .btnBox a .icon {
+    width: 20px;
+    top: 5px;
+}
+
+.card .cardFrame:nth-child(2) .btnBox a .icon svg {
     width: 100%;
 }
+
+.card .cardFrame:nth-child(2) .btnBox a:hover {
+    background-color: cornflowerblue;
+    color: azure;
+}
+
+/* staff card content */
+
+.staff {
+    width: 250px;
+    min-height: 350px;
+    border-radius: 15px;
+    background-color: blanchedalmond;
+    overflow: hidden;
+}
+
+.staff::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgb(47, 36, 48) 0%,rgba(250, 235, 215, 0) 75%);
+}
+
+.staff .data {
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    z-index: 5;
+    color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.staff .data h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    width: 75%;
+    line-height: 1em;
+}
+
+.staff .data p {
+    width: 90%;
+}
+
+.staff .data p:nth-child(2) {
+    font-size: 1em;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    opacity: 0.75;
+}
+
+.staff .data p:nth-child(3) {
+    font-size: 0.65em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.staff .buttons {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    overflow: hidden;
+    gap: 1px;
+    border-bottom-right-radius: 12.5px;
+    border-top-left-radius: 20px;
+}
+
+.staff .buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 40px;
+    transition: all ease-in-out .45s;
+    z-index: 5;
+    background-color: rgba(220, 220, 220, 0.5);
+    color: azure;
+}
+
+.staff .buttons a .icon {
+    width: 20px;
+    top: 5px;
+}
+
+.staff .buttons a .icon svg {
+    width: 100%;
+}
+
+.staff .buttons a:hover {
+    background-color: burlywood;
+    color: azure;
+}
+
+
 

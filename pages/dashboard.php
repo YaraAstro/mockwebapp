@@ -82,7 +82,7 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
                 
                 <div class="profile_frame">
                     <div class="data_box">
-                        <h1><?php echo $_SESSION['user_name'] ?></h1>
+                        <h1><?php echo $data['first_name'].' '.$data['last_name'] ?></h1>
                         <?php
                         
                         if ($_SESSION['user_type'] === 'staff_member') {

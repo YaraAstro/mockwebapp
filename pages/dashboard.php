@@ -23,6 +23,10 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
     exit();
 }
 
+
+    !empty($data['profile_picture_path']) ? $img_path = $data['profile_picture_path'] : $img_path = '../assets/images/dashboard/5481365_2813838.jpg'; 
+                    
+
 ?>
 
 <!DOCTYPE html>
@@ -36,150 +40,134 @@ if ( isset($_SESSION['user_id'], $_SESSION['user_name'], $_SESSION['user_type'],
 
     <link rel="stylesheet" href="../assets/styles/dashboard/styles.css">
     <link rel="stylesheet" href="../assets/styles/scrollbarStyles.css">
+    <link rel="stylesheet" href="../assets/styles/mainLayout.css">
+    <link rel="stylesheet" href="../assets/styles/mainSideBar.css">
+
+    <style>
+        .innerFrame:nth-child(2)::after {
+            content: '';
+            position: fixed;
+            z-index: -5;
+            width: 35%;
+            height: 100%;
+            background: url('<?php echo $img_path ?>');
+            background-size: cover;
+            background-position: center;
+            right: 0;
+            top: 0;
+            transform: rotateY(180deg);
+            filter: opacity(.75) sepia(.75) brightness(.75);
+        }
+
+        .staff {
+            text-transform: capitalize;
+        }
+
+    </style>
+
 </head>
 <body>
+
     <div class="mainFrame">
-
-        <!-- dashboard details -->
+        
+        <!-- button field -->
         <div class="innerFrame">
-
-            <div class="dashFrame">
-
-                <div class="initDetails">
-                    <?php
-                        !empty($data['profile_picture_path']) ? $img_path = $data['profile_picture_path'] : $img_path = '../assets/images/dashboard/5481365_2813838.jpg'; 
-                     ?>
-                    <div style="background-image: url(<?php echo $img_path ?>);" class="dashBlock">
-                    </div>
-                    <div class="dashBlock">
-                        <h3><?php echo $_SESSION['user_name'] ?></h3>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="dashFrame">
-
-                <div class="displayData">
-
-                    <div class="dataBlock">
-                        <h4>Personal Information</h4>
-                        <div class="block">
-                            <div class="row">
-                                <div id="firstName" class="box">
-                                    <p><?php echo $data['first_name'] ?></p>
-                                </div>
-                                <div id="lastName" class="box">
-                                    <p><?php echo $data['last_name'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="doBirth" class="box">
-                                    <p><?php echo $data['date_of_birth'] ?></p>
-                                </div>
-                                <div id="gender" class="box">
-                                    <p><?php echo $data['gender'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="nic" class="box">
-                                    <p><?php echo $data['nic_number'] ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dataBlock">
-                        <h4>Contact Information</h4>
-                        <div class="block">
-                            <div class="row">
-                                <div id="addresss" class="box">
-                                    <p><?php echo $data['address'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="district" class="box">
-                                    <p><?php echo $data['district'] ?></p>
-                                </div>
-                                <div id="postalCode" class="box">
-                                    <p><?php echo $data['postal_code'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="email" class="box">
-                                    <p><?php echo $data['email'] ?></p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div id="mobile" class="box">
-                                    <p><?php echo $data['contact_number'] ?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+            <div id="sidebar" class="button_field"></div>
         </div>
 
-        <!-- dashboard buttons -->
+        <!-- content -->
         <div class="innerFrame">
 
-            <div class="buttonsBlock">
+            <div class="profile">
+                
+                <div class="profile_frame">
+                    <div class="data_box">
+                        <h1><?php echo $_SESSION['user_name'] ?></h1>
+                        <?php
+                        
+                        if ($_SESSION['user_type'] === 'staff_member') {
 
-                <a href="">
-                    <div class="profileButtons">
-                        <div class="svgXML">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                        </div>
-                        <p>Info</p>
+                            echo '
+                                <p class="staff">'.$data['position'].'</p>
+                                <p class="staff">'.$data['branch'].'</p>
+                            ';
+                        } else {
+
+                            echo '
+                                <p>'.$data['email'].'</p>
+                                <p>'.$data['contact_number'].'</p>
+                            ';
+                        }
+                        
+                        ?>
                     </div>
-                </a>
-                
-                <a href="">
-                    <div class="profileButtons">
-                        <div class="svgXML">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-                        </div>
-                        <p>Guidance</p>
+                    <div class="img_frame">
+                        <img src="<?php echo $img_path ?>" alt="profile_picture">
                     </div>
-                </a>
-                
-                <a href="">
-                    <div class="profileButtons">
-                        <div class="svgXML">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                        </div>
-                        <p>Get Code</p>
+                </div>
+
+                <div class="profile_frame">
+
+                <?php 
+
+                    if ($_SESSION['user_type'] == 'staff_member') {
+
+                        echo '
+                            <div class="box">
+                                <div class="label">Email</div>
+                                <div class="data">'.$data['email'].'</div>
+                            </div>
+
+                            <div class="box">
+                                <div class="label">Contact No.</div>
+                                <div class="data">'.$data['contact_number'].'</div>
+                            </div>
+                        ';
+                        
+                    }
+                ?>
+                    
+                    <div class="box">
+                        <div class="label">Date of Birth</div>
+                        <div class="data"><?php echo $data['date_of_birth'] ?></div>
                     </div>
-                </a>
-                
-                <a href="./settings.php">
-                    <div class="profileButtons">
-                        <div class="svgXML">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-                        </div>
-                        <p>Settings</p>
+                    
+                    <div class="box">
+                        <div class="label">NIC No.</div>
+                        <div class="data"><?php echo $data['nic_number'] ?></div>
                     </div>
-                </a>
-                
-                <a href="../includes/logout.php">
-                    <div class="profileButtons">
-                        <div class="svgXML">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                        </div>
-                        <p>Log Out</p>
+
+                    <div class="box">
+                        <div class="label">Address</div>
+                        <div class="data"> <?php echo $data['address'] ?> <br> <?php echo $data['district'] ?> <br> <?php echo $data['postal_code'] ?> </div>
                     </div>
-                </a>
+
+                </div>
+
+                <div class="profile_frame">
+                    <?php
+
+                    if ($_SESSION['user_type'] == 'staff_member') {
+                        // Staff intro
+                        echo '<h4>Presenting ' . $_SESSION['user_name'] . ': A Promising New Member of Our Team</h4>
+                            <p class="intro">It is with great pleasure that we introduce Mr. ' . $_SESSION['user_name'] . ', a prospective staff member whose application has captured our attention with its remarkable professionalism and enthusiasm. ' . $data['first_name'] . ', born on ' . $data['date_of_birth'] . ' and identifying as ' . $data['gender'] . ', has expressed a keen interest in contributing to our team as a ' . $data['position'] . '. Their choice of the ' . $data['branch'] . ' branch for their role demonstrates their commitment to engaging actively with our organization’s vibrant environment. ' . $data['first_name'] . "'s application is complemented by a series of meticulously prepared documents, including a profile picture, NIC scan, and a resume that highlight their extensive expertise and experience. These credentials reflect " . $data['first_name'] . "'s readiness to embrace the responsibilities of their role with distinction and competence. We are excited to explore the potential contributions " . $data['first_name'] . ' will bring to our team and are dedicated to supporting their integration into our esteemed organization.</p>';
+                    } else {
+                        // Customer info
+                        echo '<h4>Introducing ' . $_SESSION['user_name'] . ': A Valued Addition to Our Customer Community</h4>
+                            <p class="intro">We are honored to present Ms. ' . $_SESSION['user_name'] . ', a distinguished individual who has recently joined our customer community. ' . $data['first_name'] . ', whose first and last names speak to their poised and professional demeanor, was born on ' . $data['date_of_birth'] . ' and identifies with grace and clarity as ' . $data['gender'] . '. Their comprehensive registration includes a well-detailed address at ' . $data['address'] . ', ' . $data['district'] . ', with the postal code ' . $data['postal_code'] . ', ensuring that our services are precisely aligned with their needs and locality. ' . $data['first_name'] . "'s engagement with us is further exemplified through their provided email, " . $data['email'] . ', and their contact number, ' . $data['contact_number'] . ', which will enable us to offer them a seamless and personalized experience. We eagerly anticipate the opportunity to serve ' . $data['first_name'] . ' and are committed to delivering an exceptional and tailored experience that befits their distinguished profile.</p>';
+                    }
+                    ?>
+                </div>
 
             </div>
+            
 
         </div>
 
     </div>
+
+    <script src="../assets/scripts/mainSideBar.js"></script>
+    
 </body>
 </html>
 

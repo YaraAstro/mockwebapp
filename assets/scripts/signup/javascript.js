@@ -45,26 +45,26 @@ const branches = [
 ];
 
 const positions = [
-    { value: 'software_engineer', text: 'Software Engineer' },
-    { value: 'data_analyst', text: 'Data Analyst' },
-    { value: 'product_manager', text: 'Product Manager' },
-    { value: 'graphic_designer', text: 'Graphic Designer' },
-    { value: 'marketing_manager', text: 'Marketing Manager' },
-    { value: 'sales_representative', text: 'Sales Representative' },
-    { value: 'human_resources_manager', text: 'Human Resources Manager' },
-    { value: 'customer_service_representative', text: 'Customer Service Representative' },
-    { value: 'financial_analyst', text: 'Financial Analyst' },
-    { value: 'project_manager', text: 'Project Manager' },
-    { value: 'business_analyst', text: 'Business Analyst' },
-    { value: 'software_developer', text: 'Software Developer' },
-    { value: 'ux_ui_designer', text: 'UX/UI Designer' },
-    { value: 'network_administrator', text: 'Network Administrator' },
-    { value: 'content_writer', text: 'Content Writer' },
-    { value: 'operations_manager', text: 'Operations Manager' },
-    { value: 'product_designer', text: 'Product Designer' },
-    { value: 'digital_marketing_specialist', text: 'Digital Marketing Specialist' },
-    { value: 'account_manager', text: 'Account Manager' },
-    { value: 'business_development_manager', text: 'Business Development Manager' }
+    { value: 'software engineer', text: 'Software Engineer' },
+    { value: 'data analyst', text: 'Data Analyst' },
+    { value: 'product manager', text: 'Product Manager' },
+    { value: 'graphic designer', text: 'Graphic Designer' },
+    { value: 'marketing manager', text: 'Marketing Manager' },
+    { value: 'sales representative', text: 'Sales Representative' },
+    { value: 'human resources manager', text: 'Human Resources Manager' },
+    { value: 'customer service representative', text: 'Customer Service Representative' },
+    { value: 'financial analyst', text: 'Financial Analyst' },
+    { value: 'project manager', text: 'Project Manager' },
+    { value: 'business analyst', text: 'Business Analyst' },
+    { value: 'software developer', text: 'Software Developer' },
+    { value: 'ux ui designer', text: 'UX/UI Designer' },
+    { value: 'network administrator', text: 'Network Administrator' },
+    { value: 'content writer', text: 'Content Writer' },
+    { value: 'operations manager', text: 'Operations Manager' },
+    { value: 'product designer', text: 'Product Designer' },
+    { value: 'digital marketing specialist', text: 'Digital Marketing Specialist' },
+    { value: 'account manager', text: 'Account Manager' },
+    { value: 'business development manager', text: 'Business Development Manager' }
 ];
 
 

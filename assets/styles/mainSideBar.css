@@ -1,0 +1,47 @@
+/* sidebar */
+
+.mainFrame .innerFrame:nth-child(1) .button_field {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    gap: 1px;
+    z-index: 10;
+    position: fixed;
+    width: 14.29%;
+    top: 0;
+    left: 0;
+}
+
+.button_field a {
+    flex: 1;
+    background-color: slategray;
+    color: whitesmoke;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition:  all ease-in-out .35s;
+}
+
+.button_field a p {
+    font-size: 1em;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.button_field a .icon {
+    width: 25px;
+    top: 5px;
+    margin-left: 15px;
+}
+
+.button_field a .icon svg {
+    width: 100%;
+}
+
+.button_field a:hover {
+    color: slategrey;
+    background-color: whitesmoke;
+    text-transform: uppercase;
+}
+

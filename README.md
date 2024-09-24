@@ -29,7 +29,7 @@ To follow along with this course, you’ll need to set up a local development en
 ### Installing XAMPP
 
 1. **Download XAMPP**: Visit the [XAMPP website](https://www.apachefriends.org/index.html) and download the version that corresponds to your operating system (Windows, macOS, or Linux).
-   
+
 2. **Install XAMPP**: Run the installer and follow the instructions to set up XAMPP on your machine. Ensure that Apache, MySQL, and PHP are selected during the installation process.
 
 3. **Launch XAMPP**: Open the XAMPP Control Panel and start the Apache and MySQL services. These will serve as your web server and database server, respectively.
@@ -53,7 +53,7 @@ Version control is a crucial part of web development, allowing you to manage cha
 ### Installing Git and GitHub Desktop
 
 1. **Install Git**: Download and install Git from the [official website](https://git-scm.com/). Git is the underlying tool that GitHub uses to manage repositories.
-   
+
 2. **Install GitHub Desktop**: GitHub Desktop is a user-friendly GUI application that simplifies managing your repositories. Download it from [here](https://desktop.github.com/).
 
 3. **Set Up Your GitHub Account**: If you don't already have one, sign up for a GitHub account at [GitHub.com](https://github.com/).

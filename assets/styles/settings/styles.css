@@ -62,7 +62,7 @@ body {
 .buttonBox a {
     flex: 1;
     text-transform: capitalize;
-    background-color: teal;
+    background-color: slategray;
     color: whitesmoke;
     display: flex;
     align-items: center;
@@ -92,7 +92,7 @@ body {
 
 .buttonBox a:hover {
     background-color: whitesmoke;
-    color: darkgreen;
+    color: slategray;
     text-transform: uppercase;
 }
 

@@ -20,6 +20,7 @@
     align-items: center;
     width: 40vw;
     left: 25%;
+    margin-bottom: 25px;
 }
 
 .searchBox input {
@@ -69,7 +70,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 35px;
+    gap: 50px;
 }
 
 .card {
@@ -79,6 +80,7 @@
     border-radius: 15px;
     background-color: #faebd7;
     min-height: 300px;
+    transition: all .45s ease-in-out;
 }
 
 .card .cardFrame:nth-child(1) {
@@ -165,6 +167,7 @@
     border-radius: 15px;
     background-color: blanchedalmond;
     overflow: hidden;
+    transition: all .45s ease-in-out;
 }
 
 .staff::after{
@@ -252,5 +255,11 @@
     color: azure;
 }
 
+/* hovering */
 
-
+.staff:hover,
+.card:hover {
+    box-shadow: 0 5px 10px darkslategrey;
+    transform: scale(1.15);
+    z-index: 25;
+}
